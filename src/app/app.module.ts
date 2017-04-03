@@ -13,6 +13,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingListAddComponent } from './shopping-list/shopping-list-add.component';
 import { HighlightDirectiveDirective } from './highlight-directive.directive';
 import { UnlessDirectiveDirective } from './unless-directive.directive';
+import { DropdownDirective } from './dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { UnlessDirectiveDirective } from './unless-directive.directive';
     ShoppingListComponent,
     ShoppingListAddComponent,
     HighlightDirectiveDirective,
-    UnlessDirectiveDirective
+    UnlessDirectiveDirective,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,

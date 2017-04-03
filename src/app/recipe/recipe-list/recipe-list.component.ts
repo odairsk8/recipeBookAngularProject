@@ -7,9 +7,11 @@ import {Recipe} from '../recipe';
 })
 export class RecipeListComponent implements OnInit {
 
-  recipes: Recipe[] = [];
+  recipes: Recipe[] = [
+    new Recipe('dummy', 'dummy', 'http://ersuk.co.uk/ekmps/shops/express2011/images/female-tailor-dummy-with-tripod-base-round-top-511-p.jpg', []),
+    new Recipe('dummy2', 'dummy2', 'http://ersuk.co.uk/ekmps/shops/express2011/images/female-tailor-dummy-with-tripod-base-round-top-511-p.jpg', [])
+  ];
   @Output() recipeSelected = new EventEmitter<Recipe>();
-  recipe = new Recipe('dummy', 'dummy', 'http://ersuk.co.uk/ekmps/shops/express2011/images/female-tailor-dummy-with-tripod-base-round-top-511-p.jpg')
 
   constructor() { }
 
