@@ -1,28 +1,43 @@
-import { Directive, ElementRef, Renderer, HostListener, HostBinding } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Renderer,
+  HostListener,
+  HostBinding,
+  OnInit,
+  Input
+} from '@angular/core';
 
 @Directive({
-  selector: '[rbHighlightDirective]'
+  selector: '[highLight]'
 })
 export class HighlightDirectiveDirective {
 
-  @HostListener('mouseenter') onmouseover(){
-    this.backgroundColor = 'yellow';
+  
+  @Input() defaultColor = 'blue';
+  @Input('highLight') highLightColor = 'yellow';
+
+  @HostListener('mouseenter') onmouseover() {
+    this.backgroundColor = this.highLightColor;
   }
 
-  @HostListener('mouseout') onmouseout(){
-    this.backgroundColor = 'blue';
+  @HostListener('mouseout') onmouseout() {
+    this.backgroundColor = this.defaultColor;
   }
 
-  @HostBinding('style.backgroundColor') get setColor(){
+  @HostBinding('style.backgroundColor') get setColor() {
     return this.backgroundColor;
   }
 
-  private backgroundColor = 'blue';
-
-  constructor(private elementRef: ElementRef, private renderer: Renderer) { 
+  private backgroundColor;
+  constructor(private elementRef: ElementRef, private renderer: Renderer) {
     //console.log(this.renderer);
     //this.elementRef.nativeElement.style.backgroungColor = 'blue';
-    this.renderer.setElementStyle(this.elementRef.nativeElement,"background-color", this.backgroundColor);
+    this.renderer.setElementStyle(this.elementRef.nativeElement, "background-color", this.backgroundColor);
+  }
+
+  OnInit() {
+    this.backgroundColor = this.defaultColor;
   }
 
 }
